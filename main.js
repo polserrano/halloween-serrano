@@ -1,0 +1,1 @@
+console.log("Iniciant el sistema de seguretat");
