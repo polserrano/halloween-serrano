@@ -1,4 +1,5 @@
-# 🎃 Halloween Git Rescue — Sistema de Seguretat i Auditoria Git
+# 🎃 Activitat Halloween Git Rescue
+👤 **Autor:** Pol Serrano Aromí
 
 Repositori corresponent a la pràctica de recuperació, gestió de branques, resolució de conflictes i viatges temporals en Git.
 
@@ -8,10 +9,10 @@ Repositori corresponent a la pràctica de recuperació, gestió de branques, res
 
 A continuació es detalla la documentació completa dividida per blocs de treball i la carpeta de captures d'evidència:
 
-*   📂 **[Carpeta de Captures](capturas/)**: Col·lecció amb totes les imatges d'evidència de les comandes executades.
-*   📄 **[Bloc 1: Invocació del Repositori i Línia Base](bloc1.md)**: Inicialització, configuració i desenvolupament inicial a `main`.
-*   📄 **[Bloc 2: Les Branques del Més Enllà i Resolució del Conflicte](bloc2.md)**: Creació de branques, desenvolupament paral·lel i resolució manual de conflictes de fusió.
-*   📄 **[Bloc 3: Viatge Temporal, Exorcisme del Codi i Publicació Remota](bloc3.md)**: Injecció i inspecció d'errors, reculada en el temps amb `git reset --hard` i publicació final a GitHub.
+*   📂 **[Carpeta de Captures](capturas/)**
+*   📄 **[Bloc 1: Invocació del Repositori i Línia Base](bloc1.md)**
+*   📄 **[Bloc 2: Les Branques del Més Enllà i Resolució del Conflicte](bloc2.md)**
+*   📄 **[Bloc 3: Viatge Temporal, Exorcisme del Codi i Publicació Remota](bloc3.md)**
 
 ---
 
@@ -25,5 +26,4 @@ A continuació es detalla la documentació completa dividida per blocs de trebal
 
 ---
 
-👤 **Autor:** Pol Serrano  
 🔗 **Repositori Públic:** [https://github.com/polserrano/halloween-serrano](https://github.com/polserrano/halloween-serrano)
