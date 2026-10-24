@@ -2,36 +2,47 @@
 
 ## Acció 3.1 — Creació del repositori local
 
-S'ha creat el directori `server-room-horror` i s'ha inicialitzat el repositori Git amb la branca principal `main`.
+En aquest primer pas, creem l'estructura de carpetes necessària per al nostre projecte de seguretat.
+Accedim al directori creat i inicialitzem un nou repositori local de Git, establint la branca
+principal amb el nom `main`. Finalment, comprovem que l'estat inicial del directori de treball
+estigui completament net abans de començar a afegir codi.
 
 ```bash
-mkdir server-room-horror
-cd server-room-horror
+mkdir halloween-serrano
+cd halloween-serrano
 git init -b main
 git status
 ```
 
-**Evidència — Captura 3-1**
+**Evidència — Captura 1**
 
-![Captura 3-1: inicialització del repositori](capturas/3-1.png)
+![Captura 1: inicialització del repositori](capturas/1.png)
+
+---
 
 ## Acció 3.2 — Configuració de la identitat
 
-S'ha configurat el nom i el correu de l'autor per identificar els commits.
+Abans de registrar qualsevol canvi al repositori, és indispensable configurar la identitat de l'autor.
+Això garanteix que tots els commits futurs quedin correctament associats al nom i correu de l'estudiant.
+Verifiquem la configuració global del sistema per comprovar que les credencials del perfil
+siguin les adients i estiguin ben registrades.
 
 ```bash
-git config --global user.name "Tu Nombre"
-git config --global user.email "tu.correo@example.com"
 git config --global --list
 ```
 
-**Evidència — Captura 3-2**
+**Evidència — Captura 2**
 
-![Captura 3-2: configuració de Git](capturas/3-2.png)
+![Captura 2: configuració de Git](capturas/2.png)
 
-## Acció 3.3 — Primer commit
+---
 
-S'ha creat `main.js` amb el codi inicial del sistema de seguretat i s'ha registrat la primera versió.
+## Acció 3.3 — Primer commit (Sistema de Seguretat)
+
+Creem el fitxer principal del projecte anomenat `main.js` amb el codi base del sistema de seguretat.
+A continuació, afegim el fitxer a l'àrea de preparació (*staging area*) mitjançant la comanda `git add`.
+Registrem el primer commit (*root-commit*) amb un missatge descriptiu seguint la convenció `feat`.
+Per acabar, utilitzem `git log` per confirmar que el commit s'ha creat correctament amb el seu hash.
 
 ```bash
 git add main.js
@@ -39,38 +50,43 @@ git commit -m "feat: initialize building security system"
 git log --oneline -1
 ```
 
-**Evidència — Captura 3-3**
+**Evidència — Captura 3**
 
-![Captura 3-3: primer commit](capturas/3-3.png)
+![Captura 3: primer commit](capturas/3.png)
 
-## Acció 3.4 — Segon i tercer commit
+---
 
-S'ha activat l'alarma i, en una modificació posterior, s'ha establert el mode normal de seguretat. Cada canvi s'ha enregistrat en un commit separat.
+## Acció 3.4 — Segon commit (Activació de l'Alarma)
+
+El desenvolupament del sistema continua afegint una nova funcionalitat per a l'alarma de seguretat.
+Editem el fitxer `main.js` per incloure la variable i el missatge corresponent a l'alarma.
+Tornem a afegir el fitxer modificat a l'àrea de preparació per indicar a Git quins canvis volem desar.
+Finalment, fem el segon commit per registrar aquest increment de codi a l'historial del projecte.
 
 ```bash
 git add main.js
 git commit -m "feat: enable building security alarm"
+```
 
+**Evidència — Captura 4**
+
+![Captura 4: segon commit](capturas/4.png)
+
+---
+
+## Acció 3.5 — Tercer commit i verificació de l'historial
+
+Completem la línia base del sistema definint el mode de seguretat inicial com a `NORMAL`.
+Afegim els canvis realitzats a `main.js` i creem el tercer commit corresponent a la branca principal.
+Consultem l'historial recent de commits amb `git log` per comprovar la seqüència cronològica dels canvis.
+Confirmem amb `git status` que el directori de treball està completament net i a punt per al següent bloc.
+
+```bash
 git add main.js
 git commit -m "feat: establish normal security mode"
 git log --oneline -3
 ```
 
-**Evidència — Captures 3-4a i 3-4**
+**Evidència — Captura 5**
 
-![Captura 3-4a: segon commit](capturas/3-4a.png)
-
-![Captura 3-4: tercer commit i historial](capturas/3-4.png)
-
-## Acció 3.5 — Consulta de l'historial
-
-S'ha consultat l'historial simplificat i s'ha comprovat que la línia base és estable i no conté canvis pendents.
-
-```bash
-git log --oneline
-git status
-```
-
-**Evidència — Captura 3-5**
-
-![Captura 3-5: historial inicial i estat del repositori](capturas/3-5.png)
+![Captura 5: tercer commit i historial](capturas/5.png)

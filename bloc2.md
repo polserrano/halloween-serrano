@@ -1,8 +1,11 @@
 # Bloc 2: Les Branques del Més Enllà i Resolució del Conflicte
 
-## Acció 3.6 — Creació de les branques
+## Acció 3.6 — Creació de branques paral·leles
 
-S'han creat dues branques a partir de la línia base de `main`. Aquesta topologia permet desenvolupar solucions independents i provocar un conflicte controlat durant la fusió.
+Per desenvolupar noves funcionalitats de manera aïllada, ens assegurem d'estar a la branca `main`.
+Creem dues branques noves a partir d'aquesta línia base: `feature-nightmare` i `feature-sanctuary`.
+Aquesta estructura ens permetrà treballar en diferents alternatives de seguretat en paral·lel.
+Verifiquem la llista de branques disponibles al repositori local per confirmar que s'han creat bé.
 
 ```bash
 git switch main
@@ -11,13 +14,18 @@ git branch feature-sanctuary
 git branch
 ```
 
-**Evidència — Captura 3-6**
+**Evidència — Captura 7**
 
-![Captura 3-6: branques del repositori](capturas/3-6.png)
+![Captura 7: branques del repositori](capturas/7.png)
 
-## Acció 3.7 — Desenvolupament de la branca nightmare
+---
 
-S'ha modificat el mode de seguretat a `NIGHTMARE` i s'ha registrat el canvi en un commit independent.
+## Acció 3.7 — Desenvolupament a la branca nightmare
+
+Ens traslladem a la branca `feature-nightmare` utilitzant la comanda `git switch`.
+Modifiquem el fitxer `main.js` per canviar el mode de seguretat del sistema a `NIGHTMARE`.
+Afegim el fitxer modificat a l'àrea de preparació i enregistrem el canvi amb un commit propi.
+Comprovem amb `git log` que aquest commit només existeix a la línia temporal d'aquesta branca.
 
 ```bash
 git switch feature-nightmare
@@ -26,13 +34,18 @@ git commit -m "feat: inject nightmare security mode"
 git log --oneline -2
 ```
 
-**Evidència — Captura 3-7**
+**Evidència — Captura 9**
 
-![Captura 3-7: commit nightmare](capturas/3-7.png)
+![Captura 9: commit nightmare](capturas/9.png)
 
-## Acció 3.8 — Desenvolupament de la branca sanctuary
+---
 
-S'ha modificat la mateixa línia de codi per establir el mode `SANCTUARY`, mantenint la independència entre les dues branques.
+## Acció 3.8 — Desenvolupament a la branca sanctuary
+
+Canviem a la branca `feature-sanctuary` per desenvolupar una alternativa de protecció diferent.
+En aquesta branca, modifiquem la mateixa línia de codi per establir el mode de seguretat com a `SANCTUARY`.
+Guardem els canvis, els afegim a l'àrea de preparació i fem el commit corresponent.
+Verifiquem l'historial de la branca per confirmar que el desenvolupament ha quedat registrat independentment.
 
 ```bash
 git switch feature-sanctuary
@@ -41,13 +54,18 @@ git commit -m "feat: implement sanctuary security mode"
 git log --oneline -2
 ```
 
-**Evidència — Captura 3-8**
+**Evidència — Captura 10**
 
-![Captura 3-8: commit sanctuary](capturas/3-8.png)
+![Captura 10: commit sanctuary](capturas/10.png)
 
-## Acció 3.9 — Integració de les branques
+---
 
-La branca `feature-nightmare` s'ha integrat primer a `main`. En intentar integrar `feature-sanctuary`, Git ha detectat canvis incompatibles a la mateixa línia.
+## Acció 3.9 — Integració i detecció del conflicte
+
+Retornem a la branca `main` i fusionem primer la branca `feature-nightmare` sense cap problema.
+En intentar fusionar la branca `feature-sanctuary`, Git detecta canvis incompatibles a la mateixa línia.
+Això genera un conflicte de fusió (*merge conflict*) automàtic que atura el procés d'integració.
+Executem `git status` per confirmar quins fitxers tenen modificacions en conflicte pendents de resoldre.
 
 ```bash
 git switch main
@@ -56,16 +74,20 @@ git merge --no-ff feature-sanctuary
 git status
 ```
 
-**Evidència — Captura 3-9**
+**Evidència — Captura 11**
 
-![Captura 3-9: conflicte de fusió](capturas/3-9.png)
+![Captura 11: conflicte de fusió](capturas/11.png)
 
-## Acció 3.10 — Resolució manual del conflicte
+---
 
-S'han eliminat les marques de conflicte i s'ha seleccionat manualment el mode de protecció `SANCTUARY`, juntament amb una variable de contenció de l'amenaça. Finalment, s'ha enregistrat la fusió.
+## Acció 3.10 — Resolució manual del conflicte i fusió
+
+Usem `git diff --check` per identificar les marques de conflicte (`<<<<<<<`, `=======`, `>>>>>>>`).
+Editem manualment el fitxer `main.js`, seleccionant el mode `SANCTUARY` i afegint la contenció de l'amenaça.
+Un cop resolt el codi, afegim el fitxer a *staging* i completem el commit de fusió (*merge commit*).
+Anotem l'arbre visual del repositori amb `git log --graph` per confirmar la unió de les branques.
 
 ```bash
-git diff
 git diff --check
 git status
 git add main.js
@@ -73,10 +95,8 @@ git commit -m "merge: resolve nightmare and sanctuary conflict"
 git log --oneline --graph --decorate --all
 ```
 
-**Evidència — Captura 3-10a**
+**Evidència — Captures 12 i 13**
 
-![Captura 3-10a: inspecció del conflicte](capturas/3-10a.png)
+![Captura 12: inspecció de marques](capturas/12.png)
 
-**Evidència — Captura 3-10**
-
-![Captura 3-10: fusió completada i historial gràfic](capturas/3-10.png)
+![Captura 13: fusió completada i historial gràfic](capturas/13.png)
